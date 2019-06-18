@@ -7,6 +7,10 @@ $arrayHeader = array();
 $arrayHeader[] = "Content-Type: application/json";
 $arrayHeader[] = "Authorization: Bearer {$accessToken}";
 
+$arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+$arrayPostData['messages'][0]['type'] = "text";
+$arrayPostData['messages'][0]['text'] = 'test';
+
 replyMsg($arrayHeader,$arrayPostData);
 
 function replyMsg($arrayHeader,$arrayPostData){
